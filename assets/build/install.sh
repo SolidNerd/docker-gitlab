@@ -88,12 +88,11 @@ chown -R ${GITLAB_USER}: ${GITLAB_SHELL_INSTALL_DIR}
 
 cd ${GITLAB_SHELL_INSTALL_DIR}
 exec_as_git cp -a config.yml.example config.yml
-if [[ -x ./bin/compile ]]; then
-  echo "Compiling gitlab-shell golang executables..."
-  ./bin/compile
-  rm -rf go_build
-fi
-./bin/install
+
+echo "Compiling gitlab-shell golang executables..."
+sed -i '1s|^|export PATH := '"${GOROOT}"'\/bin:$(PATH)\n\n|' Makefile
+exec_as_git make setup
+rm -rf go_build
 
 # remove unused repositories directory created by gitlab-shell install
 rm -rf ${GITLAB_HOME}/repositories
