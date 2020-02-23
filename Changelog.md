@@ -3,6 +3,10 @@
 This file only reflects the changes that are made in this image. Please refer to the upstream GitLab [CHANGELOG](
 https://gitlab.com/gitlab-org/gitlab-foss/blob/master/CHANGELOG.md) for the list of changes in GitLab.
 
+**12.8.0**
+- gitlab: upgrade CE to v12.8.0
+- Add Generic OAuth Provider PR#2070
+
 **12.7.7**
 - Upgrade GitLab CE to 12.7.7
 
